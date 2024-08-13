@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>False</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AccesoDatos\**" />
+    <Compile Remove="APIFarmaceutica\**" />
+    <Compile Remove="Dominio\**" />
+    <EmbeddedResource Remove="AccesoDatos\**" />
+    <EmbeddedResource Remove="APIFarmaceutica\**" />
+    <EmbeddedResource Remove="Dominio\**" />
+    <None Remove="AccesoDatos\**" />
+    <None Remove="APIFarmaceutica\**" />
+    <None Remove="Dominio\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Presentacion\Reportes\ReporteStocks.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Presentacion\Reportes\ReporteStocks.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+    <PackageReference Include="NumberTextBox" Version="1.0.0" />
+    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.18" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="AccesoDatos\AccesoDatos.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Presentacion\Reportes\DSRepoStocks.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DSRepoStocks.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ImagenPrincipal\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Presentacion\Reportes\DSRepoStocks.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSRepoStocks.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
